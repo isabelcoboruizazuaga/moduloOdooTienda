@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<odoo>
+    <data>
+        <!--Form View-->
+        <record id="view_desarrolladores_form" model="ir.ui.view">
+            <field name="name">tienda.desarrolladores.form</field>
+            <field name="model">tienda.desarrolladores</field>
+            <field name="arch" type="xml">
+                <form string="Desarrolladores">
+                    <sheet>
+                        <group>
+                            <field name="id" />
+                            <field name="nombre" />
+                            <field name="nif" />
+                            <field name="nombreMarca" />
+                            <field name="juego" />
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!--Tree View-->
+        <record id="view_desarrolladores_tree" model="ir.ui.view">
+            <field name="name">tienda.desarrolladores.tree</field>
+            <field name="model">tienda.desarrolladores</field>
+            <field name="arch" type="xml">
+                <tree string="Desarrolladores">
+                  <field name="id" />
+                  <field name="nombre" />
+                  <field name="nif" />
+                  <field name="nombreMarca" />
+                  <field name="juego" />
+                </tree>
+            </field>
+        </record>
+
+        <record id="action_view_desarrolladores" model="ir.actions.act_window">
+            <field name="name">Desarrolladores</field>
+            <field name="res_model">tienda.desarrolladores</field>
+            <field name="view_type">form</field>
+            <field name="view_model">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">Crea un nuevo desarrollador</p>
+            </field>
+        </record>
+
+
+        <record id="view_desarrolladores_search" model="ir.ui.view">
+                <field name="name">Busqueda desarrollador</field>
+                <field name="model">tienda.desarrolladores</field>
+                <field name="arch" type="xml">
+                    <search>
+                         <field name="id" />
+                        <field name="nombreMarca" />
+                        <field name="nif" />
+                    </search>
+                </field>
+        </record>
+
+        <!--Menus-->
+        <menuitem id="tienda_menu_root" name="Tiendisa" />
+        <menuitem id="action_tienda_desarrolladores_menu" name="Desarrolladores" parent="tienda_menu_root" action="action_view_desarrolladores"/>
+
+    </data>
+</odoo>

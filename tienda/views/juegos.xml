@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<odoo>
+    <data>
+        <!--Form View-->
+        <record id="view_juegos_form" model="ir.ui.view">
+            <field name="name">tienda.juegos.form</field>
+            <field name="model">tienda.juegos</field>
+            <field name="arch" type="xml">
+                <form string="Juegos">
+                    <sheet>
+                        <group>
+                            <field name="codigo" />
+                            <field name="nombre" />
+                            <field name="rangoEdad" />
+                            <field name="stockJuego" />
+                            <field name="precioJuego" />
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!--Tree View-->
+        <record id="view_juegos_tree" model="ir.ui.view">
+            <field name="name">tienda.juegos.tree</field>
+            <field name="model">tienda.juegos</field>
+            <field name="arch" type="xml">
+                <tree string="Juegos">
+                      <field name="codigo" />
+                      <field name="nombre" />
+                      <field name="rangoEdad" />
+                      <field name="stockJuego" />
+                      <field name="precioJuego" />
+                </tree>
+            </field>
+        </record>
+
+
+        <record id="action_view_juegos" model="ir.actions.act_window">
+            <field name="name">Juegos</field>
+            <field name="res_model">tienda.juegos</field>
+            <field name="view_type">form</field>
+            <field name="view_model">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">Crea un nuevo juego</p>
+            </field>
+        </record>
+
+
+        <record id="view_juegos_search" model="ir.ui.view">
+                <field name="name">Busqueda juegos</field>
+                <field name="model">tienda.juegos</field>
+                <field name="arch" type="xml">
+                    <search>
+                        <field name="codigo" />
+                        <field name="nombre" />
+                        <field name="rangoEdad" />
+                    </search>
+                </field>
+        </record>
+
+        <!--Menus-->
+        <menuitem id="tienda_menu_root" name="Tiendisa" />
+        <menuitem id="action_tienda_juegos_menu" name="Juegos" parent="tienda_menu_root" action="action_view_juegos"/>
+
+    </data>
+</odoo>
